@@ -43,19 +43,11 @@ file(GLOB_RECURSE Headers
      "Headers/*/*.h"
 )
 
-file(GLOB_RECURSE CPP_Sources
+file(GLOB_RECURSE Sources
      "main.cpp"
      "Sources/*.cpp"
-     "Headers/Qt/*/*.cpp"
-     "Sources/Qt/*.cpp"
+     "Headers/*/*.cpp"
 )
-
-file(GLOB_RECURSE QML_Sources
-     "Sources/QML/*.qml"
-)
-
-# Combine C++ and QML sources
-set(Sources ${CPP_Sources} ${QML_Sources})
 
 include_directories(Headers Sources)
 
@@ -75,7 +67,7 @@ else()
 	message(WARNING "The specified qt6 path '${QT6_DIR}' does not exist")
 endif()
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Qml Quick QuickControls2 Gui LinguistTools)
+find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
 qt_standard_project_setup()
 qt6_add_resources(RSCS resources.qrc)
 add_custom_target(gen_qrc DEPENDS ${RSCS})
@@ -84,7 +76,7 @@ add_custom_target(gen_qrc DEPENDS ${RSCS})
 ### Translation Configuration            ###
 ############################################
 
-set(TS_DIR QML_Project/Resources/Translations)
+set(TS_DIR QT_Project/Resources/Translations)
 set(TS_FILES ${TS_DIR}/app_de.ts ${TS_DIR}/app_en.ts)
 
 # Ensure the translations directory exists
@@ -131,7 +123,7 @@ if(USE_CLANG_FORMAT)
             -style=file:${CMAKE_SOURCE_DIR}/Configs/.clang-format
             -i
             ${Headers}
-            ${CPP_Sources}
+            ${Sources}
             WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
             COMMENT "Formatting code with clang-format"
         )
@@ -153,7 +145,7 @@ if(USE_CLANG_TIDY)
 			--config-file=${CMAKE_SOURCE_DIR}/Configs/.clang-tidy
             -p=${CMAKE_BINARY_DIR}
             ${Headers}
-            ${CPP_Sources}
+            ${Sources}
             WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
             COMMENT "Running clang-tidy for static analysis"
         )
@@ -216,9 +208,8 @@ else()
 	message(FATAL_ERROR "Build type not specified")
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Gui Qt6::Qml Qt6::Quick Qt6::QuickControls2)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/Doxygen.cmake)
-include(${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/CommonLib.cmake)
 
 if (WIN32)
     if (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -259,14 +250,14 @@ if (WIN32)
 		# Run windeployqt immediately after build
 		add_custom_command(TARGET ${PROJECT_NAME}
 			POST_BUILD
-			COMMAND "${WINDEPLOYQT_ENV_SETUP}" && "${WINDEPLOYQT_EXECUTABLE}" \"$<TARGET_FILE:${PROJECT_NAME}>\" "--qmldir=${CMAKE_CURRENT_SOURCE_DIR}/Sources/QML"
+			COMMAND "${WINDEPLOYQT_ENV_SETUP}" && "${WINDEPLOYQT_EXECUTABLE}" \"$<TARGET_FILE:${PROJECT_NAME}>\"
 			COMMENT "Running windeployqt..."
 		)
 		
 		# Run windeployqt immediately after build
 		#add_custom_command(TARGET ${PROJECT_NAME}
 		#	POST_BUILD
-		#	COMMAND "${WINDEPLOYQT_ENV_SETUP}" && "${WINDEPLOYQT_EXECUTABLE}" \"$<TARGET_FILE:${PROJECT_NAME}>\" "--qmldir=${CMAKE_CURRENT_SOURCE_DIR}/Style"
+		#	COMMAND "${WINDEPLOYQT_ENV_SETUP}" && "${WINDEPLOYQT_EXECUTABLE}" \"$<TARGET_FILE:${PROJECT_NAME}>\"
 		#	COMMENT "Running windeployqt..."
 		#)
 	endif()

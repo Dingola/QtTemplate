@@ -133,11 +133,11 @@ endif()
 ############################################
 
 # Add the main project
-add_subdirectory(QML_Project)
+add_subdirectory(QT_Project)
 
 # Add the test project conditionally
 if (${MAIN_PROJECT_NAME}_BUILD_TEST_PROJECT)
-  add_subdirectory(QML_Project_Tests)
+  add_subdirectory(QT_Project_Tests)
   set(startup_project ${MAIN_PROJECT_NAME}_Tests)
 else()
   set(startup_project ${MAIN_PROJECT_NAME})
