@@ -81,7 +81,7 @@ jobs:
           Xvfb :99 &>/dev/null &
           export DISPLAY=:99
           sleep 3
-          ./build/QML_Project_Tests/${{ env.MAIN_PROJECT_NAME }}_Tests
+          ./build/QT_Project_Tests/${{ env.MAIN_PROJECT_NAME }}_Tests
 
       # Generate coverage report
       - name: Generate coverage report

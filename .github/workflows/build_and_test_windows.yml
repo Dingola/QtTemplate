@@ -74,4 +74,4 @@ jobs:
         env:
           PATH: C:\Qt\${{ env.QT_VERSION }}\msvc2022_64\bin;${{ env.PATH }}
         run: |
-          .\build\QML_Project_Tests\${{ env.BUILD_TYPE }}\${{ env.MAIN_PROJECT_NAME }}_Tests.exe
+          .\build\QT_Project_Tests\${{ env.BUILD_TYPE }}\${{ env.MAIN_PROJECT_NAME }}_Tests.exe

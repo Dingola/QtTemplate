@@ -72,4 +72,4 @@ jobs:
         env:
           DYLD_LIBRARY_PATH: ${{ github.workspace }}/../Qt/${{ env.QT_VERSION }}/clang_64/lib
         run: |
-          ./build/QML_Project_Tests/${{ env.MAIN_PROJECT_NAME }}_Tests.app/Contents/MacOS/${{ env.MAIN_PROJECT_NAME }}_Tests
+          ./build/QT_Project_Tests/${{ env.MAIN_PROJECT_NAME }}_Tests.app/Contents/MacOS/${{ env.MAIN_PROJECT_NAME }}_Tests
