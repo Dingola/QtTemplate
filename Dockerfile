@@ -13,7 +13,7 @@ ENV BUILD_APP_PROJECT=true
 ENV BUILD_TEST_PROJECT=true
 ENV $RUN_APP_ON_CONTAINER_START=false
 ENV THIRD_PARTY_INCLUDE_DIR=/home/user/ThirdParty
-ENV PROJECT_NAME=QMLDesktopAppTemplate
+ENV PROJECT_NAME=QtTemplate
 ENV QT_QPA_PLATFORM=xcb
 ENV QT_DEBUG_PLUGINS=1
 
@@ -110,14 +110,14 @@ RUN if [ "$BUILD_TEST_PROJECT" = "true" ]; then \
     Xvfb :99 -screen 0 1920x1080x24 -nolisten tcp & \
     export DISPLAY=:99 && \
     sleep 3 && \
-    ./_build_tests_release/QML_Project_Tests/${PROJECT_NAME}_Tests || exit 1; \
+    ./_build_tests_release/QT_Project_Tests/${PROJECT_NAME}_Tests || exit 1; \
     fi
 
 # Default command: Conditionally run the app executable
 CMD if [ "$RUN_APP_ON_CONTAINER_START" = "true" ] && [ "$BUILD_APP_PROJECT" = "true" ]; then \
         Xvfb :99 -screen 0 1920x1080x24 -nolisten tcp & \
         export DISPLAY=:99 && \
-        ./_build_app_release/QML_Project/QMLDesktopAppTemplate; \
+        ./_build_app_release/QT_Project/QtTemplate; \
     else \
         echo "No app project to run"; \
     fi

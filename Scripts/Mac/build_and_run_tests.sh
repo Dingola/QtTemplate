@@ -22,7 +22,7 @@ setup_and_build $PROJECT_DIR $PROJECT_NAME $BUILD_TYPE $BUILD_TARGET_TYPE $BUILD
 # Run tests
 BUILD_DIR="$(pwd)/$BUILD_DIR_NAME"
 if [ "$BUILD_TEST_PROJECT" = true ]; then
-    TEST_APP_PATH="$BUILD_DIR/QML_Project_Tests/${PROJECT_NAME}_Tests.app/Contents/MacOS/${PROJECT_NAME}_Tests"
+    TEST_APP_PATH="$BUILD_DIR/QT_Project_Tests/${PROJECT_NAME}_Tests.app/Contents/MacOS/${PROJECT_NAME}_Tests"
     if [ -f "$TEST_APP_PATH" ]; then
         echo "Running tests..."
         "$TEST_APP_PATH"

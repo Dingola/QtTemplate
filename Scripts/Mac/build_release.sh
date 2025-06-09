@@ -23,7 +23,7 @@ setup_and_build $PROJECT_DIR $PROJECT_NAME $BUILD_TYPE $BUILD_TARGET_TYPE $BUILD
 read -p "Do you want to run the built project? (y/n): " run_choice
 BUILD_DIR="$(pwd)/$BUILD_DIR_NAME"
 if [[ "$run_choice" =~ ^[yY]$ ]]; then
-    open "$BUILD_DIR/QML_Project/${PROJECT_NAME}.app"
+    open "$BUILD_DIR/QT_Project/${PROJECT_NAME}.app"
 fi
 
 read -p "Press enter to continue"

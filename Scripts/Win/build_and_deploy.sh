@@ -47,7 +47,7 @@ fi
 
 # Deploy the project using windeployqt
 echo "Running windeployqt..."
-"$QT_DIR/$QT_VERSION/$QT_COMPILER_DIR/bin/windeployqt.exe" --release --qmldir "${PROJECT_DIR}/${PROJECT_NAME}/Sources/QML" "${DEPLOY_DIR_NAME}/bin/${PROJECT_NAME}.exe"
+"$QT_DIR/$QT_VERSION/$QT_COMPILER_DIR/bin/windeployqt.exe" --release "${DEPLOY_DIR_NAME}/bin/${PROJECT_NAME}.exe"
 
 # Check if windeployqt was successful
 if [ $? -ne 0 ]; then
