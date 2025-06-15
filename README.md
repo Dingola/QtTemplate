@@ -116,6 +116,7 @@ generation with Doxygen, and includes GitHub workflows (CI builds) for both Linu
 │   ├── Headers             # Header files
 │   ├── Resources           # Resource files
 │   ├── Sources             # Source files
+│   ├── Forms               # UI files (.ui)
 │   ├── ThirdParty          # CMake files for external dependencies
 │   ├── CMakeLists.txt      # CMake configuration file for the project
 │   ├── Config.h.in         # Configuration header template
