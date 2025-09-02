@@ -14,6 +14,49 @@
 
 <br><br>
 
+## 📖 [Table of Contents]
+- [Description](#description)
+- [Code Coverage Graphs](#-code-coverage-graphs)
+- [Tokens for GitHub Actions](#-tokens-for-github-actions)
+- [Solution Folder Structure](#solution-folder-structure)
+- [Configuration](#configuration)
+  - [CMake Options](#cmake-options)
+  - [Environment Variables](#environment-variables)
+- [Supported Platforms](#supported-platforms)
+- [How to Install and Run](#how-to-install-and-run)
+  - [1) Prerequisites](#1-prerequisites)
+  - [2) Setting up](#2-setting-up)
+  - [3) Configuring and Building](#3-configuring-and-building)
+  - [4) Run the project](#4-run-the-project)
+  - [5) Deployment](#5-deployment)
+  - [6) Using Docker](#6-using-docker)
+- [Translations](#translations)
+- [Code Style and Linting](#code-style-and-linting)
+
+<br><br>
+
+## [Description]
+This project is a template for creating Qt-based applications. The solution 
+is divided into two parts: the main project and a test project. By default, only the 
+main project is built. The test project can be built if desired, controlled by a CMake 
+boolean variable `<PROJECT_NAME>_BUILD_TEST_PROJECT`. Additionally, the CMake variable 
+`<PROJECT_NAME>_BUILD_TARGET_TYPE` must be set to `static_library` for the test project 
+to be executed.
+
+The template provides a minimal starting point for Qt applications, supports documentation 
+generation with Doxygen, and includes GitHub workflows (CI builds) for both Linux and Windows.
+<br><br>
+
+## 📊 [Code Coverage Graphs]
+
+| Graph     | Description                                                                                                                                                                                                                     | Visualization                                                                 |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| **Sunburst** | The inner-most circle represents the entire project. Moving outward are folders, and finally individual files. The size and color of each slice represent the number of statements and the coverage, respectively. | <img src="https://codecov.io/gh/Dingola/QtTemplate/graphs/sunburst.svg?token=2JLLHLTQYN" alt="Sunburst" height="100" width="200"> |
+| **Grid**     | Each block represents a single file in the project. The size and color of each block represent the number of statements and the coverage, respectively.                                                                      | <img src="https://codecov.io/gh/Dingola/QtTemplate/graphs/tree.svg?token=2JLLHLTQYN" alt="Grid" height="100" width="200">         |
+| **Icicle**   | The top section represents the entire project, followed by folders and individual files. The size and color of each slice represent the number of statements and the coverage, respectively.                                 | <img src="https://codecov.io/gh/Dingola/QtTemplate/graphs/icicle.svg?token=2JLLHLTQYN" alt="Icicle" height="150" width="400">     |
+
+<br><br>
+
 ## 🔐 Tokens for GitHub Actions
 
 Some workflows in this repository require tokens to function correctly. Below are the details for the required tokens and how to configure them.
@@ -58,49 +101,6 @@ Once you have generated the required tokens, add them as secrets in your GitHub 
 
 > **Note**: The `CODECOV_TOKEN` is required for the `build_and_test_linux.yml` workflow to upload coverage reports. The `PAT_TOKEN` is only needed for the disabled workflows.
 
-<br><br>
-
-## 📖 [Table of Contents]
-- [Code Coverage Graphs](#-code-coverage-graphs)
-- [Description](#description)
-- [Solution Folder Structure](#solution-folder-structure)
-- [Configuration](#configuration)
-  - [CMake Options](#cmake-options)
-  - [Environment Variables](#environment-variables)
-- [Supported Platforms](#supported-platforms)
-- [How to Install and Run](#how-to-install-and-run)
-  - [1) Prerequisites](#1-prerequisites)
-  - [2) Setting up](#2-setting-up)
-  - [3) Configuring and Building](#3-configuring-and-building)
-  - [4) Run the project](#4-run-the-project)
-  - [5) Deployment](#5-deployment)
-  - [6) Using Docker](#6-using-docker)
-- [Translations](#translations)
-- [Code Style and Linting](#code-style-and-linting)
-
-<br><br>
-
-## 📊 [Code Coverage Graphs]
-
-| Graph     | Description                                                                                                                                                                                                                     | Visualization                                                                 |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| **Sunburst** | The inner-most circle represents the entire project. Moving outward are folders, and finally individual files. The size and color of each slice represent the number of statements and the coverage, respectively. | <img src="https://codecov.io/gh/Dingola/QtTemplate/graphs/sunburst.svg?token=2JLLHLTQYN" alt="Sunburst" height="100" width="200"> |
-| **Grid**     | Each block represents a single file in the project. The size and color of each block represent the number of statements and the coverage, respectively.                                                                      | <img src="https://codecov.io/gh/Dingola/QtTemplate/graphs/tree.svg?token=2JLLHLTQYN" alt="Grid" height="100" width="200">         |
-| **Icicle**   | The top section represents the entire project, followed by folders and individual files. The size and color of each slice represent the number of statements and the coverage, respectively.                                 | <img src="https://codecov.io/gh/Dingola/QtTemplate/graphs/icicle.svg?token=2JLLHLTQYN" alt="Icicle" height="150" width="400">     |
-
-<br><br>
-
-
-## [Description]
-This project is a template for creating Qt-based applications. The solution 
-is divided into two parts: the main project and a test project. By default, only the 
-main project is built. The test project can be built if desired, controlled by a CMake 
-boolean variable `<PROJECT_NAME>_BUILD_TEST_PROJECT`. Additionally, the CMake variable 
-`<PROJECT_NAME>_BUILD_TARGET_TYPE` must be set to `static_library` for the test project 
-to be executed.
-
-The template provides a minimal starting point for Qt applications, supports documentation 
-generation with Doxygen, and includes GitHub workflows (CI builds) for both Linux and Windows.
 <br><br>
 
 ## [Solution Folder Structure]
